@@ -1,0 +1,166 @@
+info:
+  contact: {}
+paths:
+  /api/add_user:
+    post:
+      consumes:
+      - multipart/form-data
+      description: 根据上传的CSV文件批量添加用户，需要管理员或教师权限
+      parameters:
+      - description: 包含用户信息的CSV文件
+        in: formData
+        name: file
+        required: true
+        type: file
+      - description: 用户token
+        in: query
+        name: token
+        required: true
+        type: string
+      - description: 组ID
+        in: query
+        name: group_id
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 成功响应
+          schema:
+            additionalProperties: true
+            type: object
+        "400":
+          description: 无效参数或文件格式错误
+          schema:
+            additionalProperties: true
+            type: object
+        "403":
+          description: 权限不足
+          schema:
+            additionalProperties: true
+            type: object
+        "500":
+          description: 内部服务器错误
+          schema:
+            additionalProperties: true
+            type: object
+      summary: 批量添加用户
+      tags:
+      - 用户管理
+  /api/change_psw:
+    get:
+      consumes:
+      - application/json
+      description: 根据token验证身份后修改用户密码
+      parameters:
+      - description: 用户token
+        in: query
+        name: token
+        required: true
+        type: string
+      - description: 新密码
+        in: query
+        name: new_password
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 成功响应
+          schema:
+            additionalProperties: true
+            type: object
+        "400":
+          description: 无效参数或权限不足
+          schema:
+            additionalProperties: true
+            type: object
+        "500":
+          description: 内部服务器错误
+          schema:
+            additionalProperties: true
+            type: object
+      summary: 修改用户密码
+      tags:
+      - 用户管理
+  /api/generate_token:
+    post:
+      consumes:
+      - application/json
+      description: 根据用户ID和密码生成登录token
+      parameters:
+      - description: 用户ID
+        in: formData
+        name: id
+        required: true
+        type: string
+      - description: 用户密码
+        in: formData
+        name: password
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 成功响应
+          schema:
+            additionalProperties: true
+            type: object
+        "400":
+          description: 无效参数
+          schema:
+            additionalProperties: true
+            type: object
+        "500":
+          description: 内部服务器错误
+          schema:
+            additionalProperties: true
+            type: object
+      summary: 生成用户登录token
+      tags:
+      - 用户管理
+  /api/register:
+    post:
+      consumes:
+      - application/json
+      description: 开放注册接口只能注册学生账号
+      parameters:
+      - description: 用户ID
+        in: formData
+        name: id
+        required: true
+        type: string
+      - description: 用户密码
+        in: formData
+        name: password
+        required: true
+        type: string
+      - description: 用户昵称
+        in: formData
+        name: nickname
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 成功响应
+          schema:
+            additionalProperties: true
+            type: object
+        "400":
+          description: 无效输入信息
+          schema:
+            additionalProperties: true
+            type: object
+        "500":
+          description: 内部服务器错误
+          schema:
+            additionalProperties: true
+            type: object
+      summary: 注册新用户（仅限学生）
+      tags:
+      - 用户管理
+swagger: "2.0"

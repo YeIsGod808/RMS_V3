@@ -1,0 +1,39 @@
+svr_config:
+  name: "RMS_V3_SVR"
+  host: "192.168.80.128"
+  port: 8005
+  mode: "dev"
+
+log:
+  level: "debug" 
+  file_name: "RMS.log"
+  log_path: "./svrlog/"
+  max_size: 200
+  max_age: 30
+  max_backups: 7
+  logger_buf: "100000"
+
+neo4j:
+  host: "192.168.80.128"
+  port: 7687 # Neo4j服务的Bolt URL
+  username: neo4j              # 连接Neo4j的用户名
+  password: your_password      # 连接Neo4j的密码，请替换为实际密码
+
+mysql:
+  host: "192.168.80.128"
+  port: 3309
+  database: "user"
+  username: "root"
+  password: "zl020613"
+  # 设置数据库连接池的最大空闲连接数为10
+  max_idle_conns: 10
+  
+  # 设置数据库连接池的最大活跃连接数为100
+  max_open_conns: 100
+  
+  # 设置数据库连接的最大空闲时间为10分钟
+  max_idle_time: 10
+
+jwt:
+  issuer: "rms"
+  jwt-salt: "rms-salt-1123"
