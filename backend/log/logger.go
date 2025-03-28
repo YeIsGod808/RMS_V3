@@ -59,6 +59,12 @@ func InitLog() {
 	sugar = log.Sugar()
 }
 
+func Warn(v ...interface{}) {
+	sugar.Warn(v...)
+}
+func Warnf(s string, v ...interface{}) {
+	sugar.Warnf(s, v...)
+}
 func Infof(s string, v ...interface{}) {
 	sugar.Infof(s, v...)
 }

@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"github.com/RMS_V3/user"
+	"github.com/RMS_V3/internal/user"
 	"github.com/gin-gonic/gin"
 )
 
@@ -15,10 +15,18 @@ func UserRoutes(r *gin.RouterGroup) {
 		userGroup.POST("/login", user.GenerateToken)
 		// 修改用户密码
 		userGroup.POST("/change-password", user.ChangePsw)
-		// 添加新用户
+		// 添加单个用户
 		userGroup.POST("/add-user", user.AddUser)
+		// 批量导入用户
+		userGroup.POST("/batch-import", user.AddUserBatch)
 		// 用户注册接口（可根据需求开启或禁用）
 		userGroup.POST("/register", user.Register)
+		// 获取用户列表
+		userGroup.GET("/list", user.ListUsers)
+		// 更新用户信息
+		userGroup.POST("/update", user.UpdateUser)
+		// 删除用户
+		userGroup.POST("/delete", user.DeleteUser)
 	}
 
 	// 创建用户组相关API的路由组

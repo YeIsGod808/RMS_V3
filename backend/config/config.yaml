@@ -1,8 +1,9 @@
 svr_config:
   name: "RMS_V3_SVR"
   host: "192.168.80.128"
-  port: 8005
+  port: 8080
   mode: "dev"
+  machine_id: 1
 
 log:
   level: "debug" 
@@ -17,7 +18,7 @@ neo4j:
   host: "192.168.80.128"
   port: 7687 # Neo4j服务的Bolt URL
   username: neo4j              # 连接Neo4j的用户名
-  password: your_password      # 连接Neo4j的密码，请替换为实际密码
+  password: zl020613      # 连接Neo4j的密码，请替换为实际密码
 
 mysql:
   host: "192.168.80.128"
@@ -37,3 +38,15 @@ mysql:
 jwt:
   issuer: "rms"
   jwt-salt: "rms-salt-1123"
+
+minio:
+  host: "192.168.80.128"
+  port: "9000"
+  access_key_id: "bYXyU6Ie9NwX9Xi5iXgo"
+  secret_access_key: "LDMqHPGby44xU3QwkzxS6tTfMEjjWQ7agwtqwvSm"
+  video_buckets: video
+  pic_buckets: pic
+  file_buckets: file
+  video_path: "/home/isaac/go/video"
+  pic_path: "/home/isaac/go/pic"
+  file_path: "/home/isaac/go/file"
