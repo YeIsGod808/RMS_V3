@@ -15,13 +15,15 @@ type GlobalConfig struct {
 	*Neo4jConfig `mapstructure:"neo4j"`
 	*DbConfig    `mapstructure:"mysql"`
 	*JwtConfig   `mapstructure:"jwt"`
+	*MinioConfig `mapstructure:"minio"`
 }
 
 type SvrConfig struct {
-	Name string `mapstructure:"name"` // 服务name
-	Host string `mapstructure:"host"` // 服务host
-	Port int    `mapstructure:"port"`
-	Mode string `mapstructure:"mode"` // gin模式
+	Name      string `mapstructure:"name"` // 服务name
+	Host      string `mapstructure:"host"` // 服务host
+	Port      int    `mapstructure:"port"`
+	Mode      string `mapstructure:"mode"`       // gin模式
+	MachineID int    `mapstructure:"machine_id"` // 机器ID
 }
 
 type DbConfig struct {
@@ -53,6 +55,18 @@ type Neo4jConfig struct {
 type JwtConfig struct {
 	Issuer  string `json:"issuer"`
 	JwtSalt string `json:"jwt_salt"`
+}
+type MinioConfig struct {
+	Host            string `mapstructure:"host"`
+	Port            string `mapstructure:"port"`
+	AccessKeyID     string `mapstructure:"access_key_id"`
+	SecretAccessKey string `mapstructure:"secret_access_key"`
+	VideoBuckets    string `mapstructure:"video_buckets"`
+	PicBuckets      string `mapstructure:"pic_buckets"`
+	FileBuckets     string `mapstructure:"file_buckets"`
+	VideoPath       string `mapstructure:"video_path"`
+	PicPath         string `mapstructure:"pic_path"`
+	FilePath        string `mapstructure:"file_path"`
 }
 
 func Init() (err error) {

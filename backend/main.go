@@ -4,13 +4,13 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/RMS_V3/commonlib"
 	"github.com/RMS_V3/config"
 	"github.com/RMS_V3/log"
-	"github.com/RMS_V3/logger"
+	"github.com/RMS_V3/log/logger"
+	"github.com/RMS_V3/pkg/commonlib"
 	"github.com/RMS_V3/routes"
-	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
+
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 
@@ -30,24 +30,24 @@ func Init() {
 func main() {
 	Init()
 	defer log.Sync()
-	// 得到配置好路由的gin engine
+
+	// 设置Gin模式
+	if config.GetGlobalConfig().Mode == "release" {
+		gin.SetMode(gin.ReleaseMode)
+	} else {
+		gin.SetMode(gin.DebugMode)
+	}
+
 	r := routes.SetRoute()
-
-	// 使用 Swagger 中间件
-	url := ginSwagger.URL("http://192.168.80.128:8005/swagger/doc.json")
-	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler, url))
-
-	// 配置CORS
-	r.Use(cors.New(cors.Config{
-		AllowOrigins:     []string{"http://localhost:3000"},
-		AllowMethods:     []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
-		AllowHeaders:     []string{"Origin", "Content-Type", "Authorization"},
-		AllowCredentials: true,
-	}))
 
 	// 启用日志和恢复中间件
 	r.Use(gin.Logger())
 	r.Use(gin.Recovery())
+
+	// 使用 Swagger 中间件
+	url := ginSwagger.URL("http://localhost:8080/swagger/doc.json")
+	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler, url))
+
 	// 注意这里的addr就只能是host：port拼接，不能再format里面有任何其他东西
 	addr := fmt.Sprintf("%s:%d", config.GetGlobalConfig().SvrConfig.Host, config.GetGlobalConfig().SvrConfig.Port)
 	// 启动gin engine， 监听外部http请求并处理

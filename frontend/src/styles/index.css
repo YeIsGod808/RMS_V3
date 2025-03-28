@@ -1,0 +1,122 @@
+/* 全局样式 */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    'Noto Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 页面容器 */
+.page-container {
+  padding: 24px;
+  background: #f0f2f5;
+  min-height: calc(100vh - 64px);
+}
+
+/* 页面标题 */
+.page-title {
+  margin-bottom: 24px;
+  color: rgba(0, 0, 0, 0.85);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 32px;
+}
+
+/* 卡片样式 */
+.card-container {
+  background: #fff;
+  padding: 24px;
+  border-radius: 2px;
+}
+
+/* 链接样式 */
+a {
+  color: #1890ff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #40a9ff;
+}
+
+/* NProgress样式覆盖 */
+#nprogress .bar {
+  background: #1890ff !important;
+}
+
+/* 抽屉样式 */
+.ant-drawer-body {
+  padding: 24px;
+}
+
+/* 表格样式 */
+.ant-table-wrapper {
+  background: #fff;
+}
+
+/* 表单样式 */
+.form-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* 主题相关的CSS变量 */
+:root {
+  /* 默认主题变量 */
+  --primary-color: #1890ff;
+  --background-color: #f0f2f5;
+  --text-color: rgba(0, 0, 0, 0.85);
+  --border-color: #d9d9d9;
+  --border-radius: 4px;
+  --component-background: #fff;
+  --heading-color: rgba(0, 0, 0, 0.85);
+  --text-color-secondary: rgba(0, 0, 0, 0.45);
+  --disabled-color: rgba(0, 0, 0, 0.25);
+  --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* 暗色主题 */
+body[data-theme='dark'] {
+  --primary-color: #1890ff;
+  --background-color: #141414;
+  --text-color: rgba(255, 255, 255, 0.85);
+  --border-color: #434343;
+  --border-radius: 4px;
+  --component-background: #1f1f1f;
+  --heading-color: rgba(255, 255, 255, 0.85);
+  --text-color-secondary: rgba(255, 255, 255, 0.45);
+  --disabled-color: rgba(255, 255, 255, 0.25);
+  --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* 紧凑主题 */
+body[data-theme='compact'] {
+  --primary-color: #1890ff;
+  --background-color: #f0f2f5;
+  --text-color: rgba(0, 0, 0, 0.85);
+  --border-color: #d9d9d9;
+  --border-radius: 2px;
+  --component-background: #fff;
+  --heading-color: rgba(0, 0, 0, 0.85);
+  --text-color-secondary: rgba(0, 0, 0, 0.45);
+  --disabled-color: rgba(0, 0, 0, 0.25);
+  --box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 应用主题变量到全局元素 */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.page-container {
+  background-color: var(--background-color) !important;
+  transition: background-color 0.3s;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--heading-color);
+} 

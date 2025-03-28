@@ -1,4 +1,4 @@
-package neo4jUtlis
+package neo4jUtils
 
 import (
 	"fmt"
