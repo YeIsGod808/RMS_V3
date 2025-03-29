@@ -1,0 +1,32 @@
+ [ERROR] 2025-03-28 22:54:04 [github.com/RMS_V3/internal/user.AddUserBatch:382] Error 1062 (23000): Duplicate entry 'admin001' for key 't_account.PRIMARY'
+ [DEBUG] 2025-03-28 22:54:04 [github.com/RMS_V3/internal/user.AddUserBatch:386] 1062
+ [ERROR] 2025-03-28 22:54:04 [github.com/RMS_V3/internal/user.AddUserBatch:382] Error 1062 (23000): Duplicate entry 'teacher001' for key 't_account.PRIMARY'
+ [DEBUG] 2025-03-28 22:54:04 [github.com/RMS_V3/internal/user.AddUserBatch:386] 1062
+ [ERROR] 2025-03-28 22:54:04 [github.com/RMS_V3/internal/user.AddUserBatch:382] Error 1062 (23000): Duplicate entry 'student001' for key 't_account.PRIMARY'
+ [DEBUG] 2025-03-28 22:54:04 [github.com/RMS_V3/internal/user.AddUserBatch:386] 1062
+ [ERROR] 2025-03-28 22:54:04 [github.com/RMS_V3/internal/user.AddUserBatch:382] Error 1062 (23000): Duplicate entry 'student002' for key 't_account.PRIMARY'
+ [DEBUG] 2025-03-28 22:54:04 [github.com/RMS_V3/internal/user.AddUserBatch:386] 1062
+ [ERROR] 2025-03-28 22:54:11 [github.com/RMS_V3/internal/user.AddUserBatch:382] Error 1062 (23000): Duplicate entry 'admin001' for key 't_account.PRIMARY'
+ [DEBUG] 2025-03-28 22:54:11 [github.com/RMS_V3/internal/user.AddUserBatch:386] 1062
+ [ERROR] 2025-03-28 22:54:11 [github.com/RMS_V3/internal/user.AddUserBatch:382] Error 1062 (23000): Duplicate entry 'teacher001' for key 't_account.PRIMARY'
+ [DEBUG] 2025-03-28 22:54:11 [github.com/RMS_V3/internal/user.AddUserBatch:386] 1062
+ [ERROR] 2025-03-28 22:54:11 [github.com/RMS_V3/internal/user.AddUserBatch:382] Error 1062 (23000): Duplicate entry 'student001' for key 't_account.PRIMARY'
+ [DEBUG] 2025-03-28 22:54:11 [github.com/RMS_V3/internal/user.AddUserBatch:386] 1062
+ [ERROR] 2025-03-28 22:54:11 [github.com/RMS_V3/internal/user.AddUserBatch:382] Error 1062 (23000): Duplicate entry 'student002' for key 't_account.PRIMARY'
+ [DEBUG] 2025-03-28 22:54:11 [github.com/RMS_V3/internal/user.AddUserBatch:386] 1062
+ [ERROR] 2025-03-28 22:55:27 [github.com/RMS_V3/internal/user.AddUserBatch:382] Error 1062 (23000): Duplicate entry 'admin001' for key 't_account.PRIMARY'
+ [DEBUG] 2025-03-28 22:55:27 [github.com/RMS_V3/internal/user.AddUserBatch:386] 1062
+ [ERROR] 2025-03-28 22:55:27 [github.com/RMS_V3/internal/user.AddUserBatch:382] Error 1062 (23000): Duplicate entry 'teacher001' for key 't_account.PRIMARY'
+ [DEBUG] 2025-03-28 22:55:27 [github.com/RMS_V3/internal/user.AddUserBatch:386] 1062
+ [ERROR] 2025-03-28 22:55:27 [github.com/RMS_V3/internal/user.AddUserBatch:382] Error 1062 (23000): Duplicate entry 'student001' for key 't_account.PRIMARY'
+ [DEBUG] 2025-03-28 22:55:27 [github.com/RMS_V3/internal/user.AddUserBatch:386] 1062
+ [ERROR] 2025-03-28 22:55:27 [github.com/RMS_V3/internal/user.AddUserBatch:382] Error 1062 (23000): Duplicate entry 'student002' for key 't_account.PRIMARY'
+ [DEBUG] 2025-03-28 22:55:27 [github.com/RMS_V3/internal/user.AddUserBatch:386] 1062
+ [ERROR] 2025-03-28 23:00:52 [github.com/RMS_V3/internal/user.AddUserBatch:382] Error 1062 (23000): Duplicate entry 'admin001' for key 't_account.PRIMARY'
+ [DEBUG] 2025-03-28 23:00:52 [github.com/RMS_V3/internal/user.AddUserBatch:386] 1062
+ [ERROR] 2025-03-28 23:00:52 [github.com/RMS_V3/internal/user.AddUserBatch:382] Error 1062 (23000): Duplicate entry 'teacher001' for key 't_account.PRIMARY'
+ [DEBUG] 2025-03-28 23:00:52 [github.com/RMS_V3/internal/user.AddUserBatch:386] 1062
+ [ERROR] 2025-03-28 23:00:52 [github.com/RMS_V3/internal/user.AddUserBatch:382] Error 1062 (23000): Duplicate entry 'student001' for key 't_account.PRIMARY'
+ [DEBUG] 2025-03-28 23:00:52 [github.com/RMS_V3/internal/user.AddUserBatch:386] 1062
+ [ERROR] 2025-03-28 23:00:52 [github.com/RMS_V3/internal/user.AddUserBatch:382] Error 1062 (23000): Duplicate entry 'student002' for key 't_account.PRIMARY'
+ [DEBUG] 2025-03-28 23:00:52 [github.com/RMS_V3/internal/user.AddUserBatch:386] 1062

@@ -18,7 +18,7 @@ func UserRoutes(r *gin.RouterGroup) {
 		// 添加单个用户
 		userGroup.POST("/add-user", user.AddUser)
 		// 批量导入用户
-		userGroup.POST("/batch-import", user.AddUserBatch)
+		userGroup.POST("/batchAddUserToGroup", user.AddUserBatch)
 		// 用户注册接口（可根据需求开启或禁用）
 		userGroup.POST("/register", user.Register)
 		// 获取用户列表

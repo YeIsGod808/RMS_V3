@@ -39,7 +39,7 @@ service.interceptors.response.use(
     
     // 适配后端返回格式
     // 后端可能返回 ret 而不是 code
-    if (res.ret !== undefined && res.ret !== "0") {
+    if (res.ret !== undefined && res.ret !== "0" && res.ret !== 0) {
       const errMsg = res.msg || '请求失败'
       console.error('API请求错误 (ret):', res.ret, errMsg)
       

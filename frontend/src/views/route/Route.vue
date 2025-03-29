@@ -121,7 +121,7 @@ const handleSearch = async () => {
 <style scoped>
 .route-container {
   padding: 24px;
-  background: #f0f2f5;
+  background:rgb(231, 235, 242);
   min-height: calc(100vh - 180px);
   animation: fadeIn 0.5s ease-out;
 }
@@ -138,7 +138,7 @@ const handleSearch = async () => {
 }
 
 .route-card {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(245, 240, 230, 0.95);
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   backdrop-filter: blur(12px);
@@ -175,7 +175,7 @@ const handleSearch = async () => {
   max-width: 800px;
   margin: 0 auto;
   padding: 32px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(250, 250, 250, 0.95));
+  background: linear-gradient(120deg, rgba(225, 230, 234, 0.05), rgba(162, 240, 164, 0.05));
   border-radius: 16px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.3);

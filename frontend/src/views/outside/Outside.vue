@@ -155,7 +155,7 @@
 }
 
 .site-card {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(245, 240, 230, 0.95);
   border-radius: 16px;
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -177,7 +177,7 @@
   align-items: center;
   text-align: center;
   height: 100%;
-  background: linear-gradient(120deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.95));
+  background: linear-gradient(120deg, rgba(245, 240, 230, 0.95), rgba(245, 240, 230, 0.95));
 }
 
 .site-icon {

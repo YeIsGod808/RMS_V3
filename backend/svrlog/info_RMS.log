@@ -1556,3 +1556,206 @@
 	RETURN [node in nodes(path) | node.name] AS pathNodes,
 	       [rel in relationships(path) | type(rel)] AS pathRelationships
 	 map[endPointName:层次模型 startPointName:第一章] <nil> <nil> <nil>}
+2025-03-28T20:09:54.966+0800	[34mINFO[0m	backend/main.go:28	log init success...
+2025-03-28T20:09:58.376+0800	[34mINFO[0m	neo4jUtils/neo4jSession.go:29	neo4j uri:neo4j://neo4j:zl020613@192.168.80.128:7687
+2025-03-28T20:59:40.283+0800	[34mINFO[0m	backend/main.go:28	log init success...
+2025-03-28T21:00:13.979+0800	[34mINFO[0m	neo4jUtils/neo4jSession.go:29	neo4j uri:neo4j://neo4j:zl020613@192.168.80.128:7687
+2025-03-28T21:18:03.768+0800	[34mINFO[0m	backend/main.go:28	log init success...
+2025-03-28T21:18:16.028+0800	[34mINFO[0m	neo4jUtils/neo4jSession.go:29	neo4j uri:neo4j://neo4j:zl020613@192.168.80.128:7687
+2025-03-28T21:25:59.278+0800	[34mINFO[0m	backend/main.go:28	log init success...
+2025-03-28T21:26:02.790+0800	[34mINFO[0m	neo4jUtils/neo4jSession.go:29	neo4j uri:neo4j://neo4j:zl020613@192.168.80.128:7687
+2025-03-28T22:21:23.242+0800	[34mINFO[0m	Analysis/graphAnalysis.go:86	查询结果: &{0xc000004708 0xc000242380 
+	MATCH (p:point)
+	WHERE id(p) = $pointId
+	CALL {
+		WITH p
+		MATCH (p)<-[:前置*]-(prereq)
+		RETURN count(prereq) AS prereqCount,
+			max(COUNT { (prereq)-[:前置*]->(p) }) AS maxDepth
+	}
+	RETURN prereqCount, maxDepth
+	 map[pointId:0] <nil> <nil> <nil>}
+2025-03-28T22:21:23.240+0800	[34mINFO[0m	application/graphService.go:304	查询section节点	{"chapterNodeId": "0"}
+2025-03-28T22:21:27.009+0800	[34mINFO[0m	Analysis/graphAnalysis.go:86	查询结果: &{0xc000270a88 0xc0001b0000 
+	MATCH (p:point)
+	WHERE id(p) = $pointId
+	CALL {
+		WITH p
+		MATCH (p)<-[:前置*]-(prereq)
+		RETURN count(prereq) AS prereqCount,
+			max(COUNT { (prereq)-[:前置*]->(p) }) AS maxDepth
+	}
+	RETURN prereqCount, maxDepth
+	 map[pointId:2] <nil> <nil> <nil>}
+2025-03-28T22:21:27.009+0800	[34mINFO[0m	application/graphService.go:423	查询point节点	{"sectionNodeId": "2"}
+2025-03-28T22:21:29.759+0800	[34mINFO[0m	db/db.go:31	mdb addr:root:zl020613@(192.168.80.128:3309)/user?charset=utf8&parseTime=True&loc=Local
+2025-03-28T22:21:29.774+0800	[34mINFO[0m	Analysis/graphAnalysis.go:86	查询结果: &{0xc000004708 0xc000674280 
+	MATCH (p:point)
+	WHERE id(p) = $pointId
+	CALL {
+		WITH p
+		MATCH (p)<-[:前置*]-(prereq)
+		RETURN count(prereq) AS prereqCount,
+			max(COUNT { (prereq)-[:前置*]->(p) }) AS maxDepth
+	}
+	RETURN prereqCount, maxDepth
+	 map[pointId:5] <nil> <nil> <nil>}
+2025-03-28T22:21:29.864+0800	[34mINFO[0m	repository/db.go:130	pointId: 5
+2025-03-28T22:21:34.537+0800	[34mINFO[0m	Analysis/graphAnalysis.go:86	查询结果: &{0xc000004708 0xc0002f6000 
+	MATCH (p:point)
+	WHERE id(p) = $pointId
+	CALL {
+		WITH p
+		MATCH (p)<-[:前置*]-(prereq)
+		RETURN count(prereq) AS prereqCount,
+			max(COUNT { (prereq)-[:前置*]->(p) }) AS maxDepth
+	}
+	RETURN prereqCount, maxDepth
+	 map[pointId:4] <nil> <nil> <nil>}
+2025-03-28T22:21:34.561+0800	[34mINFO[0m	repository/db.go:130	pointId: 4
+2025-03-28T22:21:37.537+0800	[34mINFO[0m	Analysis/graphAnalysis.go:86	查询结果: &{0xc000004708 0xc000674b80 
+	MATCH (p:point)
+	WHERE id(p) = $pointId
+	CALL {
+		WITH p
+		MATCH (p)<-[:前置*]-(prereq)
+		RETURN count(prereq) AS prereqCount,
+			max(COUNT { (prereq)-[:前置*]->(p) }) AS maxDepth
+	}
+	RETURN prereqCount, maxDepth
+	 map[pointId:5] <nil> <nil> <nil>}
+2025-03-28T22:21:37.569+0800	[34mINFO[0m	repository/db.go:130	pointId: 5
+2025-03-28T22:21:40.495+0800	[34mINFO[0m	Analysis/graphAnalysis.go:86	查询结果: &{0xc000004708 0xc0002f6680 
+	MATCH (p:point)
+	WHERE id(p) = $pointId
+	CALL {
+		WITH p
+		MATCH (p)<-[:前置*]-(prereq)
+		RETURN count(prereq) AS prereqCount,
+			max(COUNT { (prereq)-[:前置*]->(p) }) AS maxDepth
+	}
+	RETURN prereqCount, maxDepth
+	 map[pointId:4] <nil> <nil> <nil>}
+2025-03-28T22:21:40.509+0800	[34mINFO[0m	repository/db.go:130	pointId: 4
+2025-03-28T22:21:43.071+0800	[34mINFO[0m	application/graphService.go:304	查询section节点	{"chapterNodeId": "0"}
+2025-03-28T22:21:45.030+0800	[34mINFO[0m	application/graphService.go:423	查询point节点	{"sectionNodeId": "2"}
+2025-03-28T22:21:45.030+0800	[34mINFO[0m	Analysis/graphAnalysis.go:86	查询结果: &{0xc000270a88 0xc0001b1700 
+	MATCH (p:point)
+	WHERE id(p) = $pointId
+	CALL {
+		WITH p
+		MATCH (p)<-[:前置*]-(prereq)
+		RETURN count(prereq) AS prereqCount,
+			max(COUNT { (prereq)-[:前置*]->(p) }) AS maxDepth
+	}
+	RETURN prereqCount, maxDepth
+	 map[pointId:2] <nil> <nil> <nil>}
+2025-03-28T22:21:46.979+0800	[34mINFO[0m	application/graphService.go:304	查询section节点	{"chapterNodeId": "0"}
+2025-03-28T22:21:57.209+0800	[34mINFO[0m	application/graphService.go:304	查询section节点	{"chapterNodeId": "0"}
+2025-03-28T22:21:57.210+0800	[34mINFO[0m	Analysis/graphAnalysis.go:86	查询结果: &{0xc000004708 0xc000675300 
+	MATCH (p:point)
+	WHERE id(p) = $pointId
+	CALL {
+		WITH p
+		MATCH (p)<-[:前置*]-(prereq)
+		RETURN count(prereq) AS prereqCount,
+			max(COUNT { (prereq)-[:前置*]->(p) }) AS maxDepth
+	}
+	RETURN prereqCount, maxDepth
+	 map[pointId:0] <nil> <nil> <nil>}
+2025-03-28T22:22:30.924+0800	[34mINFO[0m	application/graphService.go:423	查询point节点	{"sectionNodeId": "2"}
+2025-03-28T22:22:30.924+0800	[34mINFO[0m	Analysis/graphAnalysis.go:86	查询结果: &{0xc000270a88 0xc0002f7000 
+	MATCH (p:point)
+	WHERE id(p) = $pointId
+	CALL {
+		WITH p
+		MATCH (p)<-[:前置*]-(prereq)
+		RETURN count(prereq) AS prereqCount,
+			max(COUNT { (prereq)-[:前置*]->(p) }) AS maxDepth
+	}
+	RETURN prereqCount, maxDepth
+	 map[pointId:2] <nil> <nil> <nil>}
+2025-03-28T22:22:36.611+0800	[34mINFO[0m	Analysis/graphAnalysis.go:86	查询结果: &{0xc000004708 0xc0002f7100 
+	MATCH (p:point)
+	WHERE id(p) = $pointId
+	CALL {
+		WITH p
+		MATCH (p)<-[:前置*]-(prereq)
+		RETURN count(prereq) AS prereqCount,
+			max(COUNT { (prereq)-[:前置*]->(p) }) AS maxDepth
+	}
+	RETURN prereqCount, maxDepth
+	 map[pointId:4] <nil> <nil> <nil>}
+2025-03-28T22:22:36.647+0800	[34mINFO[0m	repository/db.go:130	pointId: 4
+2025-03-28T22:24:39.395+0800	[34mINFO[0m	application/graphService.go:304	查询section节点	{"chapterNodeId": "0"}
+2025-03-28T22:24:39.397+0800	[34mINFO[0m	Analysis/graphAnalysis.go:86	查询结果: &{0xc000004708 0xc0011a2180 
+	MATCH (p:point)
+	WHERE id(p) = $pointId
+	CALL {
+		WITH p
+		MATCH (p)<-[:前置*]-(prereq)
+		RETURN count(prereq) AS prereqCount,
+			max(COUNT { (prereq)-[:前置*]->(p) }) AS maxDepth
+	}
+	RETURN prereqCount, maxDepth
+	 map[pointId:0] <nil> <nil> <nil>}
+2025-03-28T23:09:22.932+0800	[34mINFO[0m	backend/main.go:28	log init success...
+2025-03-28T23:25:27.577+0800	[34mINFO[0m	neo4jUtils/neo4jSession.go:29	neo4j uri:neo4j://neo4j:zl020613@192.168.80.128:7687
+2025-03-28T23:31:10.730+0800	[34mINFO[0m	backend/main.go:28	log init success...
+2025-03-28T23:35:08.938+0800	[34mINFO[0m	backend/main.go:28	log init success...
+2025-03-29T00:05:19.268+0800	[34mINFO[0m	neo4jUtils/neo4jSession.go:29	neo4j uri:neo4j://neo4j:zl020613@192.168.80.128:7687
+2025-03-29T00:11:23.579+0800	[34mINFO[0m	Analysis/graphAnalysis.go:86	查询结果: &{0xc000005508 0xc000242d00 
+	MATCH (p:point)
+	WHERE id(p) = $pointId
+	CALL {
+		WITH p
+		MATCH (p)<-[:前置*]-(prereq)
+		RETURN count(prereq) AS prereqCount,
+			max(COUNT { (prereq)-[:前置*]->(p) }) AS maxDepth
+	}
+	RETURN prereqCount, maxDepth
+	 map[pointId:0] <nil> <nil> <nil>}
+2025-03-29T00:11:23.575+0800	[34mINFO[0m	application/graphService.go:304	查询section节点	{"chapterNodeId": "0"}
+2025-03-29T00:11:26.893+0800	[34mINFO[0m	application/graphService.go:423	查询point节点	{"sectionNodeId": "1"}
+2025-03-29T00:11:26.901+0800	[34mINFO[0m	Analysis/graphAnalysis.go:86	查询结果: &{0xc000005888 0xc0002f6400 
+	MATCH (p:point)
+	WHERE id(p) = $pointId
+	CALL {
+		WITH p
+		MATCH (p)<-[:前置*]-(prereq)
+		RETURN count(prereq) AS prereqCount,
+			max(COUNT { (prereq)-[:前置*]->(p) }) AS maxDepth
+	}
+	RETURN prereqCount, maxDepth
+	 map[pointId:1] <nil> <nil> <nil>}
+2025-03-29T00:11:28.002+0800	[34mINFO[0m	application/graphService.go:423	查询point节点	{"sectionNodeId": "2"}
+2025-03-29T00:11:28.003+0800	[34mINFO[0m	Analysis/graphAnalysis.go:86	查询结果: &{0xc000005508 0xc000f00280 
+	MATCH (p:point)
+	WHERE id(p) = $pointId
+	CALL {
+		WITH p
+		MATCH (p)<-[:前置*]-(prereq)
+		RETURN count(prereq) AS prereqCount,
+			max(COUNT { (prereq)-[:前置*]->(p) }) AS maxDepth
+	}
+	RETURN prereqCount, maxDepth
+	 map[pointId:2] <nil> <nil> <nil>}
+2025-03-29T00:11:32.011+0800	[34mINFO[0m	db/db.go:31	mdb addr:root:zl020613@(192.168.80.128:3309)/user?charset=utf8&parseTime=True&loc=Local
+2025-03-29T00:11:32.017+0800	[34mINFO[0m	Analysis/graphAnalysis.go:86	查询结果: &{0xc000005888 0xc0001b0700 
+	MATCH (p:point)
+	WHERE id(p) = $pointId
+	CALL {
+		WITH p
+		MATCH (p)<-[:前置*]-(prereq)
+		RETURN count(prereq) AS prereqCount,
+			max(COUNT { (prereq)-[:前置*]->(p) }) AS maxDepth
+	}
+	RETURN prereqCount, maxDepth
+	 map[pointId:4] <nil> <nil> <nil>}
+2025-03-29T00:11:32.134+0800	[34mINFO[0m	repository/db.go:130	pointId: 4
+2025-03-29T00:24:14.093+0800	[34mINFO[0m	backend/main.go:28	log init success...
+2025-03-29T00:25:33.032+0800	[34mINFO[0m	neo4jUtils/neo4jSession.go:29	neo4j uri:neo4j://neo4j:zl020613@192.168.80.128:7687
+2025-03-29T13:02:54.227+0800	[34mINFO[0m	backend/main.go:28	log init success...
+2025-03-29T13:03:03.633+0800	[34mINFO[0m	neo4jUtils/neo4jSession.go:29	neo4j uri:neo4j://neo4j:zl020613@192.168.80.128:7687
+2025-03-29T13:04:38.264+0800	[34mINFO[0m	backend/main.go:28	log init success...
+2025-03-29T13:04:58.414+0800	[34mINFO[0m	neo4jUtils/neo4jSession.go:29	neo4j uri:neo4j://neo4j:zl020613@192.168.80.128:7687

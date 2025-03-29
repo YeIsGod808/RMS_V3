@@ -113,4 +113,13 @@ export function deleteGroupUsers(groupId, users, token) {
     params: { group_id: groupId, token },
     data: { Users: users }
   })
-} 
+}
+
+export function batchAddUserToGroup(groupId, data, token) {
+  return request({
+    url: '/api/user/batchAddUserToGroup',
+    method: 'post',
+    params: { group_id: groupId, token },
+    data: data
+  })
+}

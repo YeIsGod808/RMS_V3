@@ -458,7 +458,7 @@ const handlePasswordChanged = () => {
 /* 内容区域 */
 .content {
   padding: 24px;
-  background: #f5f7fa;
+  background:rgb(84, 93, 147);
   min-height: calc(100vh - 160px);
   position: relative;
   z-index: 1;
@@ -480,8 +480,8 @@ const handlePasswordChanged = () => {
 .footer {
   text-align: center;
   padding: 20px 24px;
-  background: white;
-  box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.05);
+  background: #f5f2eb;
+  box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.03);
   position: relative;
   z-index: 5;
 }

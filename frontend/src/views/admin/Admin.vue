@@ -67,7 +67,7 @@ onMounted(async () => {
 <style scoped>
 .admin-page {
   min-height: 100vh;
-  background: linear-gradient(135deg, #f0f7ff 0%, #e0eafc 100%);
+  background: linear-gradient(135deg,rgba(245, 240, 230, 0.95) 0%, #e0eafc 100%);
   padding: 24px;
   transition: background 0.3s ease;
 }
@@ -78,7 +78,7 @@ onMounted(async () => {
   align-items: center;
   margin-bottom: 24px;
   padding: 24px;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(245, 240, 230, 0.95);
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   backdrop-filter: blur(12px);
@@ -118,7 +118,7 @@ onMounted(async () => {
 
 .card-container {
   position: relative;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(244, 241, 241, 0.95);
   border-radius: 16px;
   padding: 24px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);

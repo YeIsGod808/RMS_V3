@@ -272,6 +272,14 @@ func AddUserBatch(c *gin.Context) {
 	if !ok {
 		return
 	}
+	group_id, _ := strconv.Atoi(c.Query("group_id"))
+	if group_id == 0 {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"ret": 400,
+			"msg": "group_id为空",
+		})
+		return
+	}
 	postFile, err := c.FormFile("file")
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
@@ -292,6 +300,7 @@ func AddUserBatch(c *gin.Context) {
 	reader := csv.NewReader(bufio.NewReader(file))
 	sqlTeml := "INSERT into t_account (user_id,nickname,password,user_type) VALUES (?,?,?,?)" //fix
 	sqlParam := make([]interface{}, 0)
+	// 默认密码为12345678
 	default_psw := md5Gen("12345678")
 	users := []string{}
 	validUserType := map[string]bool{}
@@ -364,10 +373,6 @@ func AddUserBatch(c *gin.Context) {
 			return
 		}
 		users = append(users, line[0])
-		// if i > 1 {
-		// 	sqlTeml += ","
-		// }
-		// sqlTeml += "(?,?,?,?)"
 		sqlParam = make([]interface{}, 0) //fix
 		sqlParam = append(sqlParam, line[0], line[1], default_psw, line[2])
 		tx, _ := commonlib.DB_user.Begin()
@@ -396,21 +401,6 @@ func AddUserBatch(c *gin.Context) {
 		}
 		tx.Commit()
 	}
-	// tx, _ := commonlib.DB_user.Begin()
-	// _, err = tx.Exec(sqlTeml, sqlParam...)
-	// defer tx.Rollback()
-	// if err != nil {
-	// 	if mysqlErr, ok := err.(*mysql.MySQLError); ok && mysqlErr.Number == 1062 {
-	// 		// Duplicate entry error, do nothing.
-	// 	}
-	// 	logger.ERROR_LOG(err.Error(), c)
-	// 	c.JSON(http.StatusInternalServerError, gin.H{
-	// 		"ret": errcode.DBERR_BASE,
-	// 		"msg": "插入账号时出现错误，请检查文件内容",
-	// 	})
-	// 	return
-	// }
-	group_id, _ := strconv.Atoi(c.Query("group_id"))
 	if group_id != 0 {
 		valid, err := AddGroupUserDB(u, group_id, users)
 		if !valid {
@@ -436,7 +426,6 @@ func AddUserBatch(c *gin.Context) {
 			return
 		}
 	}
-	// tx.Commit()
 	c.JSON(http.StatusOK, gin.H{
 		"ret": 0,
 		"msg": "ok",

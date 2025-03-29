@@ -40,5 +40,6 @@ func KgRoutes(r *gin.RouterGroup) {
 		knowledge.POST("/knowledge/autoConstruct", auto.ExtractKnowledgeFromFile)
 		knowledge.GET("/knowledge/learningDifficulty", analysis.AssessLearningDifficulty)
 		knowledge.POST("/knowledge/pathRecommend", recommend.GenerateLearningPath)
+		knowledge.GET("/knowledge/analyzeConnections", analysis.AnalyzeKnowledgeConnections)
 	}
 }

@@ -118,7 +118,7 @@ const handleResources = () => {
 <style scoped>
 .graph-page {
   min-height: 100vh;
-  background: linear-gradient(135deg, #f0f7ff 0%, #e0eafc 100%);
+  background: linear-gradient(135deg, #f5f0e6 0%, #eae3d7 100%);
   padding: 24px;
   transition: background 0.3s ease;
 }
@@ -129,9 +129,9 @@ const handleResources = () => {
   align-items: center;
   margin-bottom: 24px;
   padding: 24px;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(245, 240, 230, 0.95);
   border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   backdrop-filter: blur(12px);
   transition: all 0.3s ease;
 }
@@ -147,7 +147,6 @@ const handleResources = () => {
   -webkit-text-fill-color: transparent;
   letter-spacing: 0.5px;
 }
-
 .header-content .subtitle {
   color: #5c6b7c;
   margin-top: 8px;
@@ -163,29 +162,29 @@ const handleResources = () => {
 
 .graph-card {
   flex: 1;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(245, 240, 230, 0.95);
   border-radius: 16px;
   padding: 24px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   backdrop-filter: blur(12px);
   min-height: 600px;
   transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(245, 240, 230, 0.3);
 }
 
 .graph-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
 .info-panel {
   width: 320px;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(245, 240, 230, 0.95);
   border-radius: 16px;
   backdrop-filter: blur(12px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(245, 240, 230, 0.3);
   animation: slideIn 0.3s ease-out;
 }
 
@@ -217,7 +216,7 @@ const handleResources = () => {
 
 .stats {
   margin: 20px 0;
-  background: rgba(33, 150, 243, 0.05);
+  background: rgba(245, 240, 230, 0.8);
   padding: 16px;
   border-radius: 12px;
 }

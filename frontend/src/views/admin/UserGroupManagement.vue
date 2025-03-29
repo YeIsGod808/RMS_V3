@@ -95,9 +95,14 @@
         <div class="group-members">
           <div class="members-header">
             <h4>用户组成员 ({{ groupMembers.length || 0 }}人)</h4>
-            <a-button type="primary" size="small" @click="showAddMemberModal" class="add-member-button">
-              <plus-outlined /> 添加成员
-            </a-button>
+            <a-space>
+              <a-button type="primary" size="small" @click="showAddMemberModal" class="add-member-button">
+                <plus-outlined /> 添加成员
+              </a-button>
+              <a-button type="primary" size="small" @click="showBatchAddMemberModal" class="add-member-button">
+                <upload-outlined /> 批量导入
+              </a-button>
+            </a-space>
           </div>
           
           <a-table
@@ -151,6 +156,31 @@
         </a-form-item>
       </a-form>
     </a-modal>
+    <!-- 批量添加成员模态框 -->
+    <a-modal
+      v-model:visible="batchAddMemberModalVisible"
+      title="批量添加成员"
+      @ok="handleBatchAddMember"
+      :confirm-loading="confirmLoading"
+      class="member-modal"
+    >
+      <a-form :model="batchMemberForm" :label-col="{ span: 6 }" :wrapper-col="{ span: 16 }" class="member-form">
+        <a-form-item label="CSV文件" name="file" :rules="[{ required: true, message: '请上传CSV文件' }]">
+          <a-upload
+            v-model:file-list="fileList"
+            :before-upload="beforeUpload"
+            :multiple="false"
+            accept=".csv"
+          >
+            <a-button>
+              <upload-outlined /> 选择文件
+            </a-button>
+            <div class="form-help-text">请上传CSV格式的文件</div>
+          </a-upload>
+        </a-form-item>
+      </a-form>
+    </a-modal>
+
   </div>
 </template>
 
@@ -162,7 +192,8 @@ import {
   EditOutlined, 
   DeleteOutlined, 
   TeamOutlined,
-  UserDeleteOutlined
+  UserDeleteOutlined,
+  UploadOutlined
 } from '@ant-design/icons-vue'
 import { useUserStore } from '@/store/modules/user'
 import {
@@ -172,9 +203,12 @@ import {
   editGroupName,
   deleteGroup,
   addGroupUsers,
-  deleteGroupUsers
+  deleteGroupUsers,
+  batchAddUserToGroup
 } from '@/api/userGroup'
-
+import {
+  getUserList
+} from '@/api/user'
 // 获取用户store
 const userStore = useUserStore()
 
@@ -204,6 +238,8 @@ const createGroupModalVisible = ref(false)
 const editGroupModalVisible = ref(false)
 const groupDetailModalVisible = ref(false)
 const addMemberModalVisible = ref(false)
+const batchAddMemberModalVisible = ref(false)
+const fileList = ref([])
 
 // 表单数据
 const groupForm = reactive({
@@ -214,6 +250,63 @@ const groupForm = reactive({
 const memberForm = reactive({
   users: ''
 })
+
+const batchMemberForm = reactive({
+  group_id: '',
+  file: null
+})
+
+// 显示批量添加成员模态框
+const showBatchAddMemberModal = () => {
+  batchMemberForm.file = null
+  fileList.value = []
+  batchAddMemberModalVisible.value = true
+}
+
+// 文件上传前的处理
+const beforeUpload = (file) => {
+  batchMemberForm.file = file
+  fileList.value = [file]
+  return false
+}
+
+// 处理批量添加成员
+const handleBatchAddMember = async () => {
+  if (!batchMemberForm.file) {
+    message.error('请上传CSV文件')
+    return
+  }
+
+  const formData = new FormData()
+  formData.append('file', batchMemberForm.file)
+
+  confirmLoading.value = true
+  try {
+    const response = await batchAddUserToGroup(selectedGroup.value.group_id, formData, userStore.token)
+    console.log('批量添加成员响应:', response)
+    if (response.ret === 0 || response.ret === "0") {  // 添加字符串类型的判断
+      message.success('批量添加成员成功')
+      batchAddMemberModalVisible.value = false
+      batchMemberForm.file = null
+      fileList.value = []
+      await loadGroupMembers(selectedGroup.value.group_id)
+    } else {
+      message.error('批量添加成员失败: ' + response.msg)
+    }
+  } catch (error) {
+    console.error('批量添加成员错误:', error)
+    if (error.response) {
+      if (error.response.status === 401) {
+        message.error('登录已过期，请重新登录')
+        userStore.logout()
+      } else {
+        message.error('批量添加成员失败: ' + (error.response.data?.msg || '未知错误'))
+      }
+    } else {
+      message.error('批量添加成员失败: ' + (error.message || '请检查网络连接或稍后重试'))
+    }
+  }
+}
 
 // 加载用户组列表
 const loadGroups = async () => {

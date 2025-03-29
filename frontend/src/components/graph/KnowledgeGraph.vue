@@ -1407,7 +1407,7 @@ const handlePreviewModalClose = () => {
 
 .graph-toolbar {
   padding: 16px;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
+  background: linear-gradient(to right, rgba(245, 240, 230, 0.95), rgba(245, 240, 230, 0.95));
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
@@ -1426,7 +1426,7 @@ const handlePreviewModalClose = () => {
     border-radius: 8px 0 0 8px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-right: none;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(252, 252, 253, 0.98);
     backdrop-filter: blur(8px);
     transition: all 0.3s ease;
     
@@ -1536,8 +1536,13 @@ const handlePreviewModalClose = () => {
 .graph-container {
   flex: 1;
   overflow: hidden;
-  background: linear-gradient(135deg, #f5f7fa 0%, #eef2f7 100%);
+  background: linear-gradient(135deg,rgb(232, 234, 237) 0%,rgb(217, 220, 223) 100%);
   position: relative;
+  background-image: url('@/assets/scnu.svg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(245, 240, 230, 0.95); /* 背景颜色 */
   border-radius: 0 0 16px 16px;
   box-shadow: none;
   transition: all 0.3s ease;
@@ -1615,7 +1620,7 @@ const handlePreviewModalClose = () => {
   position: absolute;
   right: 15px;
   top: 80px;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(245, 240, 230, 0.95);
   padding: 15px;
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.2);

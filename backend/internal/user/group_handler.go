@@ -33,7 +33,6 @@ func CreateGroup(c *gin.Context) {
 		"group_id": id,
 	})
 }
-
 func AddGroupUser(c *gin.Context) {
 	u, ok := CheckUserPermission(c.Query("token"), Teacher, c)
 	if !ok {

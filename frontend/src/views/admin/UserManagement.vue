@@ -103,7 +103,7 @@
 </template>
 
 <script setup>
-import { ref, reactive, onMounted } from 'vue'
+import { ref, reactive, onMounted, onActivated } from 'vue'
 import { message } from 'ant-design-vue'
 import { PlusOutlined, EditOutlined, DeleteOutlined, LockOutlined } from '@ant-design/icons-vue'
 import { getUserList, addUser, updateUser, deleteUser } from '@/api/user'
@@ -290,6 +290,11 @@ const handleUserModalOk = async () => {
 
 // 加载数据
 onMounted(async () => {
+  await loadUsers()
+})
+
+// 当组件被激活时重新加载数据
+onActivated(async () => {
   await loadUsers()
 })
 </script>
